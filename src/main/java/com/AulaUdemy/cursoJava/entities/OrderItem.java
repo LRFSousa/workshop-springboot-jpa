@@ -3,6 +3,7 @@ package com.AulaUdemy.cursoJava.entities;
 import java.io.Serializable;
 
 import com.AulaUdemy.cursoJava.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -30,6 +31,7 @@ public class OrderItem implements Serializable {
 		this.price = price;
 	}
 
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
@@ -37,9 +39,10 @@ public class OrderItem implements Serializable {
 		id.setOrder(order);
 	}
 	
-	public Order getProduct() {
-		return id.getOrder();
+	public Product getProduct() {
+		return id.getProduct();
 	}
+	
 	public void setProduct(Product product) {
 		id.setProduct(product);
 	}
